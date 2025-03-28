@@ -1,0 +1,26 @@
+
+<div class="container mx-0">
+  <h1>Les bookmarks de la liste</h1>
+
+  <div class="row">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="col-md-3 d-flex">
+        <div class="card h-100 shadow">
+          <%= image_tag bookmark.movie.poster_url, class: "card-img-top img-fluid", style: "height: 250px; object-fit: cover;" %>
+          <div class="card-body">
+            <p class="card-text"><strong>Comment :</strong> <%= bookmark.comment %></p>
+            <p class="text-muted"><%= bookmark.movie.overview %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to "Créer un bookmark", new_list_bookmark_path(@list), class: "btn btn-primary" %>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to "Retour à l'index", lists_path, class: "btn btn-primary" %>
+  </div>
+</div>
